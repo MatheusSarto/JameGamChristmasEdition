@@ -16,11 +16,6 @@ public class PlayerManager : MonoBehaviour
 
     PlayerState state = PlayerState.Normal;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     private void OnDrawGizmos()
     {
@@ -44,12 +39,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-   
-    }
-
-
+    // Public function to be called by Anvil on event, using the Interactable class.
     public void Trhow(GameObject player)
     {
         PlayerManager manager = player.GetComponent<PlayerManager>();
@@ -60,6 +50,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    // Public function to be called by Anvil on event, using the Interactable class.
     public void Kick(GameObject player)
     {
         PlayerManager manager = player.GetComponent<PlayerManager>();
@@ -78,9 +69,11 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Transformation Time over");
     }
 
-    private void changeState(PlayerState newState)
+    // Public function to be called by Anvil on event, using the Interactable class.
+    public void changeState(PlayerState newState)
     {
-
+        // Switch case to check which state the player current is when the function is called.
+        // This function changes player state variable and also it's speed and hurtbox.
         Debug.Log($"Current state: {state}");
         Debug.Log($"New state Param: {Enum.GetName(typeof(PlayerState), newState)}");
         switch (state) 

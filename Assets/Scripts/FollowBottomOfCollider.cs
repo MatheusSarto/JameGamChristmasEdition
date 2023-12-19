@@ -11,9 +11,9 @@ public class FollowBottomOfCollider : MonoBehaviour
         playerHurtbox = playerHurtbox.GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Adjusts the ground checker to always be on the bottom of the collider, even if the collider changes it size
         if (playerHurtbox != null)
         { 
             float bottomY = playerHurtbox.bounds.min.y;

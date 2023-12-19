@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_speed = (float)PlayerSpeed.Normal;
     }
-    // Update is called once per frame
+
     void Update()
     {
         m_horizontal = Input.GetAxisRaw("Horizontal");
