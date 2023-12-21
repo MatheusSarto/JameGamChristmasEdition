@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        Debug.Log($"Player Movement Speed: {m_speed}");
+        //Debug.Log($"Player Movement Speed: {m_speed}");
 
         Flip();
     }
