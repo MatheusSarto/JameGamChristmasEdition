@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField] public Transform playerTransform;
+    private Transform playerTransform;
 
     void Start()
     {
-        // Gets the transf  orm from the player object.
-        playerTransform = playerTransform.GetComponent<Transform>();
+        // Gets the transform from the player object.
+        playerTransform = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
     }
 
     void Update()

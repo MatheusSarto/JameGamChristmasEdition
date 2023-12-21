@@ -23,22 +23,6 @@ public class PlayerManager : MonoBehaviour
         Gizmos.DrawWireCube(hurtBox.bounds.center, hurtBox.bounds.size);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.J) && isTransformed == false)
-        {
-            changeState(PlayerState.Shrink);
-            StartCoroutine(DelayedCallBack());
-        }
-
-        if (Input.GetKeyDown(KeyCode.K) && isTransformed == false)
-        {
-            changeState(PlayerState.Grown);
-            StartCoroutine(DelayedCallBack());
-        }
-    }
-
     // Public function to be called by Anvil on event, using the Interactable class.
     public void Trhow(GameObject player)
     {
@@ -71,7 +55,7 @@ public class PlayerManager : MonoBehaviour
 
     // Public function to be called by Anvil on event, using the Interactable class.
     public void changeState(PlayerState newState)
-    {
+    { 
         // Switch case to check which state the player current is when the function is called.
         // This function changes player state variable and also it's speed and hurtbox.
         Debug.Log($"Current state: {state}");
@@ -90,14 +74,18 @@ public class PlayerManager : MonoBehaviour
 
                     state = PlayerState.Shrink;
                     isTransformed = true;
+                    StartCoroutine(DelayedCallBack());
+                    return;
                 }
-                else
+                else if(newState == PlayerState.Grown)
                 {
                     hurtBox.size = new Vector2(hurtBox.size.x, hurtBox.size.y * 2);
                     playerController.m_speed = (float)PlayerSpeed.Grown;
 
                     state = PlayerState.Grown;
                     isTransformed = true;
+                    StartCoroutine(DelayedCallBack());
+                    return;
                 }
                 break;
 

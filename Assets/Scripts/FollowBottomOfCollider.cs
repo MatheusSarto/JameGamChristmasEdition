@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FollowBottomOfCollider : MonoBehaviour
 {
-    [SerializeField] BoxCollider2D playerHurtbox;
+    private BoxCollider2D playerHurtbox;
 
     void Start()
     {
-        playerHurtbox = playerHurtbox.GetComponent<BoxCollider2D>();
+        playerHurtbox = GameObject.FindGameObjectWithTag("Player")?.GetComponent<BoxCollider2D>();
     }
 
     void Update()
